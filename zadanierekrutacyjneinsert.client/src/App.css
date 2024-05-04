@@ -109,3 +109,13 @@
     background: #510EF2;
     color: #fff;
 }
+
+.label-red {
+    font-weight: bold;
+    color: #b11919;
+}
+
+.label-green {
+    font-weight: bold;
+    color: #3d8a19;
+}

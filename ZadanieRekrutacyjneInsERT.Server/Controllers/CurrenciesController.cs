@@ -1,10 +1,13 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
+using System.Net.Http;
 using ZadanieRekrutacyjneInsERT.Core.Entities;
 using ZadanieRekrutacyjneInsERT.Core.Interfaces;
 using ZadanieRekrutacyjneInsERT.Server.Clients;
 using ZadanieRekrutacyjneInsERT.Server.Dtos;
 using ZadanieRekrutacyjneInsERT.Server.Errors;
+using ZadanieRekrutacyjneInsERT.Server.Helpers;
 
 namespace ZadanieRekrutacyjneInsERT.Server.Controllers
 {
@@ -24,23 +27,33 @@ namespace ZadanieRekrutacyjneInsERT.Server.Controllers
         }
 
         [HttpGet("exchangerates")]
-        public async Task<ActionResult<IEnumerable<ExchangeRateDto>>> GetExchangeRates()
+        public async Task<ActionResult<List<ExchangeRateDto>>> GetExchangeRates()
         {
             var exchangeRates = await _exchangeRateRepo.GetAllAsync(x => x.Date.Date == DateTime.Today);
 
-            if (exchangeRates.Count == 0) 
+            if (!exchangeRates.Any()) 
             {
                 try
                 {
                     exchangeRates = await GetExchangeRatesFromNBP();
                 }
-                catch (HttpRequestException ex)
+                catch (Exception ex)
                 {
-                    return StatusCode((int)ex.StatusCode, new ApiResponse((int)ex.StatusCode, ex.Message));
+                    if (ex is HttpRequestException)
+                    {
+                        var httpRequestException = (HttpRequestException)ex;
+                        return StatusCode((int)httpRequestException.StatusCode, new ApiResponse((int)httpRequestException.StatusCode, ex.Message));
+                    }
+
+                    return StatusCode((int)HttpStatusCode.BadRequest, new ApiResponse((int)HttpStatusCode.BadRequest, ex.Message));
                 }
             }
 
-            var exchangeRatesDto = _mapper.Map<IEnumerable<ExchangeRateDto>>(exchangeRates);
+            var yesterdaysExchangeRates = await _exchangeRateRepo.GetAllAsync(x => x.Date.Date == DateTime.Today.AddDays(-1));
+
+            var exchangeRatesDto = _mapper.Map<List<ExchangeRateDto>>(exchangeRates);
+
+            if (yesterdaysExchangeRates.Any()) exchangeRatesDto = exchangeRatesDto.GetRateDiference(yesterdaysExchangeRates);
 
             return Ok(exchangeRatesDto);
         }
