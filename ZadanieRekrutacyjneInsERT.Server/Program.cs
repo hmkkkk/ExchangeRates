@@ -11,7 +11,7 @@ builder.Services.AddSingleton<INBPClient, NBPClient>();
 builder.Services.AddScoped(typeof(IBaseRepository<,>), typeof(BaseRepository<,>));
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-builder.Services.AddDbContext<DataContext>(o => o.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddDbContext<DataContext>(o => o.UseSqlServer(Environment.GetEnvironmentVariable("DefaultConnection")));
 
 var app = builder.Build();
 
@@ -30,6 +30,6 @@ app.UseStaticFiles();
 
 app.MapControllers();
 
-//app.MapFallbackToFile("/index.html");
+app.MapFallbackToFile("/index.html");
 
 app.Run();

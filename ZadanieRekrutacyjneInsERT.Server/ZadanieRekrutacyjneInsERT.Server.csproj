@@ -33,4 +33,8 @@
     <ProjectReference Include="..\ZadanieRekrutacyjneInsERT.Infrastructure\ZadanieRekrutacyjneInsERT.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
 </Project>
