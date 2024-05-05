@@ -1,10 +1,8 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
-using System.Net.Http;
 using ZadanieRekrutacyjneInsERT.Core.Entities;
 using ZadanieRekrutacyjneInsERT.Core.Interfaces;
-using ZadanieRekrutacyjneInsERT.Server.Clients;
 using ZadanieRekrutacyjneInsERT.Server.Dtos;
 using ZadanieRekrutacyjneInsERT.Server.Errors;
 using ZadanieRekrutacyjneInsERT.Server.Helpers;

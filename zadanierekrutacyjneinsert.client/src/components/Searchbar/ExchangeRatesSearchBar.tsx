@@ -6,7 +6,6 @@ type ExchangesSearchBarProps = {
 const ExchangesSearchBar: React.FC<ExchangesSearchBarProps> = ({ searchInput, setSearchInput }) => {
 
     const handleSearchInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        console.log(e.target.value)
         const inputValue = e.target.value;
         setSearchInput(inputValue)
     }

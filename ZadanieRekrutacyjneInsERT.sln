@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZadanieRekrutacyjneInsERT.I
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZadanieRekrutacyjneInsERT.Core", "ZadanieRekrutacyjneInsERT.Core\ZadanieRekrutacyjneInsERT.Core.csproj", "{E54555A6-2B32-43B4-84B8-54D04F46CF69}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZadanieRekrutacyjneInsERT.Server.Tests", "ZadanieRekrutacyjneInsERT.Server.Tests\ZadanieRekrutacyjneInsERT.Server.Tests.csproj", "{C2B63712-8702-4B2B-8213-AD4F48E4F5C5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{E54555A6-2B32-43B4-84B8-54D04F46CF69}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E54555A6-2B32-43B4-84B8-54D04F46CF69}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E54555A6-2B32-43B4-84B8-54D04F46CF69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2B63712-8702-4B2B-8213-AD4F48E4F5C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2B63712-8702-4B2B-8213-AD4F48E4F5C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2B63712-8702-4B2B-8213-AD4F48E4F5C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2B63712-8702-4B2B-8213-AD4F48E4F5C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

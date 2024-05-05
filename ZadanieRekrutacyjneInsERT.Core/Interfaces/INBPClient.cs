@@ -1,6 +1,6 @@
 ﻿using ZadanieRekrutacyjneInsERT.Core.Dtos;
 
-namespace ZadanieRekrutacyjneInsERT.Server.Clients
+namespace ZadanieRekrutacyjneInsERT.Core.Interfaces
 {
     public interface INBPClient
     {

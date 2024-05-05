@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using RestSharp;
 using ZadanieRekrutacyjneInsERT.Core.Dtos;
+using ZadanieRekrutacyjneInsERT.Core.Interfaces;
 
 namespace ZadanieRekrutacyjneInsERT.Server.Clients
 {
