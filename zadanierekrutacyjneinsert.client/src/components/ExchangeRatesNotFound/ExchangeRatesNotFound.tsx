@@ -1,6 +1,9 @@
 const ExchangeRatesNotFound = () => {
     return (
-        <p className="text-center">Failed to load exchange rates. Please reload the page or try again later.</p>
+        <p className="text-center">
+            Exchange rates haven't been loaded yet. Please wait a moment.
+            If nothing happens - try reloading the page.
+        </p>
     )
 }
 

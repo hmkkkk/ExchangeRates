@@ -41,6 +41,7 @@ namespace ZadanieRekrutacyjneInsERT.Server.Tests.Controllers
                 .ReturnsAsync(new List<ExchangeRate>());
             _mapperMock.Setup(m => m.Map<IEnumerable<ExchangeRateDto>>(It.IsAny<IEnumerable<ExchangeRate>>())).Returns(It.IsAny<IEnumerable<ExchangeRateDto>>());
             _NBPClientMock.Setup(client => client.GetExchangeRatesAsync()).ReturnsAsync(new List<NBPExchangeRateDto>()).Verifiable();
+
             var result = await _controller.GetExchangeRates();
 
             _NBPClientMock.Verify();

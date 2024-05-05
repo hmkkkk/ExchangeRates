@@ -29,8 +29,8 @@ namespace ZadanieRekrutacyjneInsERT.Functions
             )] TimerInfo myTimer)
         {
             _logger.LogInformation($"[GetExchangeRatesFromNBP] function executed at: {DateTime.Now}");
-            var exchangeRates = await _context.ExchangeRates.Where(x => x.Date.Date == DateTime.Today).ToListAsync();
 
+            var exchangeRates = await _context.ExchangeRates.Where(x => x.Date.Date == DateTime.Today).ToListAsync();
             if (exchangeRates.Any()) return;
 
             var exchangeRatesDto = await _client.GetExchangeRatesAsync();

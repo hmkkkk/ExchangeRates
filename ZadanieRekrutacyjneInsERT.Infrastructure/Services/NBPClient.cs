@@ -36,7 +36,7 @@ namespace ZadanieRekrutacyjneInsERT.Server.Clients
 
                 var exchangeRateTable = obj.FirstOrDefault();
 
-                if (exchangeRateTable == default) throw new Exception();
+                if (exchangeRateTable == default) throw new Exception("[GetExchangeRatesAsync] Response had no table with exchange rates");
 
                 return exchangeRateTable.Rates;
             }
