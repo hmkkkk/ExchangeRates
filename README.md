@@ -12,3 +12,6 @@ The client app was created using Vite for React + TypeScript
 
 ### Azure Function
 The function runs once per day, adding new set of exchange rates from NBP's API if there are no records with today's date.
+
+### URL
+The app can be found here [https://exchangeratesinsert.fly.dev/](https://exchangeratesinsert.fly.dev/)
